@@ -1,6 +1,5 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from .models import Article
-from django.shortcuts import get_object_or_404
 
 def index_view(request):
     articles = Article.objects.all()
@@ -12,7 +11,11 @@ def index_view(request):
 
 def article_detail(request, pk):
     article = get_object_or_404(Article, pk=pk)
+
     context = {
         'article': article
     }
     return render(request, 'webapp/article-detail.html', context)
+
+
+#redirect(reverse('article-detail', kwargs={'pk':article.pk})) 
