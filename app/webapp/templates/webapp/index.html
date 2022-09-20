@@ -11,7 +11,7 @@
 <body>
     {% for article in articles %}
     <p>{{ article.title }} - {{ article.text }}</p>
-    <a href="/articles/?id={{article.id}}">Подробнее</a>
+    <a href="/articles/{{article.id}}/">Подробнее</a>
     {% endfor %}
 </body>
 
